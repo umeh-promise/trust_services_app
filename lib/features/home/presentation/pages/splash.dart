@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
-import 'package:trust_services_app/features/home/widgets/carousel.dart';
+import 'package:trust_services_app/features/home/presentation/widgets/carousel.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
