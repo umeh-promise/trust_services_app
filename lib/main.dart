@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/theme.dart';
-import 'package:trust_services_app/features/home/pages/splash.dart';
+import 'package:trust_services_app/features/home/presentation/pages/splash.dart';
 
 void main() {
   runApp(const MyApp());

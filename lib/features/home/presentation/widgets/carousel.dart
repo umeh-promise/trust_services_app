@@ -11,7 +11,7 @@ final List<Map<String, String>> _carouselItems = [
   {
     "title": "Trusted professionals for every service",
     "subtitle":
-        "From home repairs to beauty experts — book verified professionals near you.",
+        "From home repairs to beauty experts - book verified professionals near you.",
   },
   {
     "title": "Fast, reliable, and affordable",
@@ -28,10 +28,10 @@ class Carousel extends StatelessWidget {
       options: FlutterCarouselOptions(
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
-        height: 275,
+        height: 270,
         viewportFraction: 1.0,
         enableInfiniteScroll: true,
-        indicatorMargin: 7,
+        indicatorMargin: 10,
         slideIndicator: CircularSlideIndicator(
           slideIndicatorOptions: SlideIndicatorOptions(
             currentIndicatorColor: AppPallete.primaryColor,
