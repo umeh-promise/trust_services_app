@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(backgroundColor: backgroundColor),
         child: Text(
           buttonText,
