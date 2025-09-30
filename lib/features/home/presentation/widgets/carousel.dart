@@ -28,7 +28,7 @@ class Carousel extends StatelessWidget {
       options: FlutterCarouselOptions(
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
-        height: 270,
+        height: 240,
         viewportFraction: 1.0,
         enableInfiniteScroll: true,
         indicatorMargin: 10,
@@ -45,6 +45,7 @@ class Carousel extends StatelessWidget {
             (item) => Column(
               spacing: 14,
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   item['title'] as String,

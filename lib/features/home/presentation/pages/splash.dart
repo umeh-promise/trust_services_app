@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
+import 'package:trust_services_app/features/auth/presentation/pages/login.dart';
+import 'package:trust_services_app/features/auth/presentation/pages/signup.dart';
 import 'package:trust_services_app/features/home/presentation/widgets/carousel.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -31,10 +33,15 @@ class SplashScreen extends StatelessWidget {
               spacing: 16,
               children: [
                 Carousel(),
-                Button('Get Started', onPressed: () {}),
+                Button(
+                  'Get Started',
+                  onPressed: () =>
+                      Navigator.of(context).push(SignupScreen.route()),
+                ),
                 Button(
                   'Login Now',
-                  onPressed: () {},
+                  onPressed: () =>
+                      Navigator.of(context).push(LoginScreen.route()),
                   backgroundColor: AppPallete.whiteColor,
                   color: AppPallete.primaryColor,
                 ),
