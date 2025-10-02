@@ -5,6 +5,7 @@ import 'package:trust_services_app/features/auth/data/datasources/auth_remote_da
 import 'package:trust_services_app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:trust_services_app/features/auth/domain/repositories/auth_repository.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/current_user_usecase.dart';
+import 'package:trust_services_app/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_onboarding_usecase.dart';
@@ -38,12 +39,14 @@ void _initAuth() {
     ..registerFactory(() => CurrentUserUsecase(serviceLocator()))
     ..registerFactory(() => LoginUserUsecase(serviceLocator()))
     ..registerFactory(() => LogoutUsecase(serviceLocator()))
+    ..registerFactory(() => ForgotPasswordUsecase(serviceLocator()))
     ..registerLazySingleton(
       () => AuthCubit(
         signupUsecase: serviceLocator(),
         currentUserUsecase: serviceLocator(),
         loginUserUsecase: serviceLocator(),
         logoutUsecase: serviceLocator(),
+        forgotPasswordUsecase: serviceLocator(),
       )..authLoggedInUser(),
     );
 }

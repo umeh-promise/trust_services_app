@@ -1,6 +1,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:trust_services_app/core/errors/exception.dart';
 import 'package:trust_services_app/features/auth/data/model/user_model.dart';
+import 'package:trust_services_app/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_onboarding_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_signup_usecase.dart';
@@ -16,6 +17,8 @@ abstract interface class AuthRemoteDataSource {
   Session? get currentUserSession;
 
   Future<void> logout();
+
+  Future<void> forgotPassword(ForgotPasswordParams params);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -99,6 +102,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         password: params.password,
         email: params.email,
       );
+
       if (response.user == null) {
         throw ServerException('Server error');
       }
@@ -114,6 +118,17 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return await supabaseClient.auth.signOut();
     } on AuthApiException catch (e) {
       throw ServerException(e.message);
+    }
+  }
+
+  @override
+  Future<void> forgotPassword(ForgotPasswordParams params) async {
+    try {
+      await supabaseClient.auth.resetPasswordForEmail(params.email);
+    } on AuthException catch (e) {
+      throw ServerException(e.message);
+    } catch (e) {
+      throw ServerException('Failed to send OTP: $e');
     }
   }
 }

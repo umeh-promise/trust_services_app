@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/usecase/usecase.dart';
 import 'package:trust_services_app/features/auth/domain/entities/user.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/current_user_usecase.dart';
+import 'package:trust_services_app/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/logout_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_signup_usecase.dart';
@@ -14,16 +15,19 @@ class AuthCubit extends Cubit<AuthState> {
   final CurrentUserUsecase _currentUserUsecase;
   final LoginUserUsecase _loginUserUsecase;
   final LogoutUsecase _logoutUsecase;
+  final ForgotPasswordUsecase _forgotPasswordUsecase;
 
   AuthCubit({
     required UserSignupUsecase signupUsecase,
     required CurrentUserUsecase currentUserUsecase,
     required LoginUserUsecase loginUserUsecase,
     required LogoutUsecase logoutUsecase,
+    required ForgotPasswordUsecase forgotPasswordUsecase,
   }) : _signupUsecase = signupUsecase,
        _currentUserUsecase = currentUserUsecase,
        _loginUserUsecase = loginUserUsecase,
        _logoutUsecase = logoutUsecase,
+       _forgotPasswordUsecase = forgotPasswordUsecase,
        super(AuthInitial());
 
   void authLoggedInUser() async {
@@ -64,5 +68,30 @@ class AuthCubit extends Cubit<AuthState> {
       (l) => emit(AuthFailure(l.message)),
       (r) => emit(AuthLogoutSuccess()),
     );
+  }
+
+  void forgotPassword(ForgotPasswordParams params) async {
+    emit(AuthLoading());
+    final response = await _forgotPasswordUsecase(params);
+    response.fold(
+      (l) => emit(AuthFailure(l.message)),
+      (r) => emit(AuthLogoutSuccess()),
+    );
+  }
+
+  Future<void> resetPasswordWithOtp(
+    String email,
+    String otp,
+    String newPassword,
+  ) async {
+    emit(AuthLoading());
+    // final response = await _resetPasswordWithOtpUsecase(
+    //   ResetPasswordParams(email: email, otp: otp, newPassword: newPassword),
+    // );
+
+    // response.fold(
+    //   (l) => emit(AuthFailure(l.message)),
+    //   (r) => emit(AuthPasswordResetSuccess()),
+    // );
   }
 }

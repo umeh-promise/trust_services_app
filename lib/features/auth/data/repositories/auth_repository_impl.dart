@@ -4,6 +4,7 @@ import 'package:trust_services_app/core/errors/failure.dart';
 import 'package:trust_services_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:trust_services_app/features/auth/domain/entities/user.dart';
 import 'package:trust_services_app/features/auth/domain/repositories/auth_repository.dart';
+import 'package:trust_services_app/features/auth/domain/usecases/forgot_password_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_onboarding_usecase.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_signup_usecase.dart';
@@ -66,6 +67,17 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either<Failure, void>> logout() async {
     try {
       return right(authRemoteDataSource.logout());
+    } catch (e) {
+      return left(Failure('$e'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> forgotPassword(
+    ForgotPasswordParams params,
+  ) async {
+    try {
+      return right(await authRemoteDataSource.forgotPassword(params));
     } catch (e) {
       return left(Failure('$e'));
     }

@@ -17,12 +17,14 @@ class TextInput extends StatelessWidget {
   final String hintText;
   final bool obscureText;
   final int? maxLines;
+  final FormFieldValidator? validator;
   final TextInputTypes type;
 
   const TextInput({
     super.key,
     this.label,
     this.maxLines = 1,
+    this.validator,
     required this.hintText,
     required this.controller,
     this.obscureText = false,
@@ -72,12 +74,13 @@ class TextInput extends StatelessWidget {
             hintStyle: Theme.of(context).textTheme.labelSmall,
           ),
           validator: label != null
-              ? (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return '$label cannot be empty';
-                  }
-                  return null;
-                }
+              ? validator ??
+                    (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return '$label cannot be empty';
+                      }
+                      return null;
+                    }
               : null,
         ),
       ],

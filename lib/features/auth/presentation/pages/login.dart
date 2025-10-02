@@ -9,6 +9,7 @@ import 'package:trust_services_app/core/widgets/scaffold_title.dart';
 import 'package:trust_services_app/core/widgets/text_input.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/login_user_usecase.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:trust_services_app/features/auth/presentation/pages/forgot_password.dart';
 import 'package:trust_services_app/features/auth/presentation/widgets/google_button.dart';
 import 'package:trust_services_app/features/dashboard/presentation/pages/home.dart';
 
@@ -58,6 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       label: 'Email Address',
                       hintText: '@gmail.com',
                       controller: _emailController,
+                      type: TextInputTypes.email,
                     ),
                     TextInput(
                       label: 'Password',
@@ -80,7 +82,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () => Navigator.of(
+                            context,
+                          ).push(ForgotPasswordScreen.route()),
                           child: Text(
                             'Forgot Password?',
                             style: Theme.of(context).textTheme.labelSmall!
