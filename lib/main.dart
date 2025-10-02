@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/theme.dart';
+import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:trust_services_app/features/auth/presentation/cubit/onboarding_cubit.dart';
+import 'package:trust_services_app/features/dashboard/presentation/pages/home.dart';
 import 'package:trust_services_app/features/home/presentation/pages/splash.dart';
+import 'package:trust_services_app/init.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDependencies();
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => serviceLocator<AuthCubit>()),
+        BlocProvider(create: (_) => serviceLocator<OnboardingCubit>()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +31,21 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.theme,
       themeMode: ThemeMode.light,
-      home: SplashScreen(),
+      home: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthLoading) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }
+
+          if (state is AuthSuccess) {
+            return HomeScreen();
+          }
+
+          return SplashScreen();
+        },
+      ),
     );
   }
 }

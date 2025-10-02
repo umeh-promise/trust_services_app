@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 
 class CheckboxInput extends StatelessWidget {
+  final String label;
   final bool checkedState;
   final ValueChanged onChange;
-  const CheckboxInput({
+  const CheckboxInput(
+    this.label, {
     super.key,
     required this.checkedState,
     required this.onChange,
@@ -28,10 +30,10 @@ class CheckboxInput extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            'By clicking, you agree to the Terms and Conditions of our service',
+            label,
             style: Theme.of(
               context,
-            ).textTheme.labelLarge!.copyWith(fontWeight: FontWeight.w400),
+            ).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.w500),
           ),
         ),
       ],
