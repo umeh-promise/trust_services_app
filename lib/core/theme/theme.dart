@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
+import 'package:trust_services_app/core/theme/sizes.dart';
 
 class AppTheme {
   static _border([color = AppPallete.transparentColor]) => OutlineInputBorder(
@@ -21,11 +22,11 @@ class AppTheme {
         fontWeight: FontWeight.w400,
         height: 24 / 16,
       ),
-      labelSmall: TextStyle(fontSize: 16, height: 22 / 16),
+      labelSmall: TextStyle(fontSize: Sizes.base, height: 22 / Sizes.base),
       labelLarge: TextStyle(
         fontSize: 14,
         fontWeight: FontWeight.bold,
-        height: 20 / 14,
+        height: Sizes.md / 14,
       ),
     ),
     fontFamily: 'Geist',
@@ -36,7 +37,7 @@ class AppTheme {
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+      contentPadding: EdgeInsets.all(Sizes.base),
       filled: true,
       fillColor: AppPallete.grey100,
       border: _border(),

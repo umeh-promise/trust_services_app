@@ -4,7 +4,7 @@ import 'package:trust_services_app/core/theme/theme.dart';
 import 'package:trust_services_app/core/widgets/loader.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/onboarding_cubit.dart';
-import 'package:trust_services_app/features/dashboard/presentation/pages/home.dart';
+import 'package:trust_services_app/features/dashboard/presentation/widgets/dashboard_tabs.dart';
 import 'package:trust_services_app/features/home/presentation/pages/splash.dart';
 import 'package:trust_services_app/init.dart';
 
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       home: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
           if (state is AuthLoading) return Loader();
-          if (state is AuthSuccess) return HomeScreen();
+          if (state is AuthSuccess) return DashboardTabs();
           return SplashScreen();
         },
       ),

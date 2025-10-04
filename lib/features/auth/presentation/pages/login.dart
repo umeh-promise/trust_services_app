@@ -11,7 +11,7 @@ import 'package:trust_services_app/features/auth/domain/usecases/login_user_usec
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:trust_services_app/features/auth/presentation/pages/forgot_password.dart';
 import 'package:trust_services_app/features/auth/presentation/widgets/google_button.dart';
-import 'package:trust_services_app/features/dashboard/presentation/pages/home.dart';
+import 'package:trust_services_app/features/dashboard/presentation/pages/dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   static route() => MaterialPageRoute(builder: (ctx) => LoginScreen());
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (state is AuthSuccess) {
           Navigator.of(
             context,
-          ).pushAndRemoveUntil(HomeScreen.route(), (route) => false);
+          ).pushAndRemoveUntil(DashboardScreen.route(), (route) => false);
         }
       },
       builder: (context, state) {

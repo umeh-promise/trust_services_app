@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
+import 'package:trust_services_app/core/theme/sizes.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
@@ -94,7 +95,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             Colors.black87,
                           ),
                           padding: WidgetStatePropertyAll(
-                            EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                            EdgeInsets.symmetric(
+                              vertical: 12,
+                              horizontal: Sizes.base,
+                            ),
                           ),
                         ),
                       ),
