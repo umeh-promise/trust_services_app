@@ -5,7 +5,6 @@ import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/theme/sizes.dart';
 import 'package:trust_services_app/core/widgets/custom_app_bar.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:trust_services_app/features/dashboard/presentation/widgets/line_divider.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/profile_card.dart';
 
 class ProfileScreen extends StatelessWidget {
