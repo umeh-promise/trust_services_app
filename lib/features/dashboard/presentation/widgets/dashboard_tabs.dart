@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
+import 'package:trust_services_app/features/dashboard/presentation/pages/chat.dart';
 import 'package:trust_services_app/features/dashboard/presentation/pages/dashboard.dart';
 import 'package:trust_services_app/features/dashboard/presentation/pages/profile.dart';
 
@@ -14,10 +15,16 @@ class DashboardTabs extends StatefulWidget {
 class _DashboardTabsState extends State<DashboardTabs> {
   int _activePageIdx = 0;
 
-  static const List<Widget> _pages = [
+  void onPreviousPage() {
+    setState(() {
+      _activePageIdx = 0;
+    });
+  }
+
+  List<Widget> get _pages => [
     DashboardScreen(),
-    Center(child: Text('Hi')),
-    ProfileScreen(),
+    ChatScreen(onPrevious: onPreviousPage),
+    ProfileScreen(onPrevious: onPreviousPage),
   ];
 
   void _setActivePageIdx(int idx) {

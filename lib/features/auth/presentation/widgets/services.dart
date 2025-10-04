@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
+import 'package:trust_services_app/core/widgets/custom_app_bar.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/onboarding_cubit.dart';
 
@@ -40,14 +41,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: ScaffoldTitle('Let’s go!'),
-        leading: InkWell(
-          onTap: widget.onPrevPage,
-          overlayColor: WidgetStatePropertyAll(AppPallete.transparentColor),
-          child: Icon(CupertinoIcons.chevron_left, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: CustomAppBar('Let’s go!', onTap: widget.onPrevPage),
       body: Padding(
         padding: const EdgeInsets.only(
           left: 20,

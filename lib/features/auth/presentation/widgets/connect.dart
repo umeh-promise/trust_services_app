@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
+import 'package:trust_services_app/core/widgets/custom_app_bar.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
 import 'package:trust_services_app/core/widgets/text_input.dart';
 import 'package:trust_services_app/features/auth/domain/usecases/user_onboarding_usecase.dart';
@@ -145,13 +146,9 @@ class _ConnectScreenState extends State<ConnectScreen> {
         final isLoading = state is OnboardingLoading;
 
         return Scaffold(
-          appBar: AppBar(
-            title: const ScaffoldTitle('Let’s get to connect'),
-            leading: InkWell(
-              onTap: widget.onPrevPage,
-              overlayColor: WidgetStatePropertyAll(AppPallete.transparentColor),
-              child: const Icon(CupertinoIcons.chevron_left, weight: 600),
-            ),
+          appBar: CustomAppBar(
+            'Let’s get to connect',
+            onTap: widget.onPrevPage,
           ),
           body: SingleChildScrollView(
             child: Padding(

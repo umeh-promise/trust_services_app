@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/theme/sizes.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
@@ -56,8 +55,8 @@ class DashboardScreen extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  ScaffoldTitle('Welcome, Ben'),
-                                  AppSubHeading('Awka, Amansea'),
+                                  ScaffoldTitle('Welcome, Dave'),
+                                  AppSubHeading('Lagos, Nigeria'),
                                 ],
                               ),
                             ),
