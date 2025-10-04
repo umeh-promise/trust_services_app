@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:trust_services_app/core/theme/colors.dart';
 import 'package:trust_services_app/core/theme/sizes.dart';
-import 'package:trust_services_app/core/widgets/heading.dart';
+import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/features/dashboard/presentation/pages/categories.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/category_card.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/home_heading.dart';
 
@@ -23,7 +23,10 @@ class Categories extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HomeHeading(onPressed: () {}, title: 'Categories'),
+          HomeHeading(
+            onPressed: () => Routes.push(CategoriesScreen.route()),
+            title: 'Categories',
+          ),
           SizedBox(
             height: 100,
             child: ListView.builder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
+import 'package:trust_services_app/core/utils/route_manager.dart';
 import 'package:trust_services_app/core/utils/toast.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
@@ -38,9 +39,7 @@ class _SignupScreenState extends State<SignupScreen> {
             Toast.error(context, state.message);
           }
           if (state is AuthSuccess) {
-            Navigator.of(
-              context,
-            ).pushAndRemoveUntil(OnboardingFlow.route(), (route) => false);
+            Routes.pushAndRemoveUntil(OnboardingFlow.route(), false);
           }
         },
         builder: (context, state) {
@@ -102,8 +101,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     GoogleButton(),
                     InkWell(
-                      onTap: () =>
-                          Navigator.of(context).push(LoginScreen.route()),
+                      onTap: () => Routes.push(LoginScreen.route()),
                       child: RichText(
                         text: TextSpan(
                           text: 'Already have an account? ',
