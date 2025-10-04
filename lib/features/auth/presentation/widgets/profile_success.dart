@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
-import 'package:trust_services_app/features/dashboard/presentation/pages/dashboard.dart';
+import 'package:trust_services_app/features/dashboard/presentation/widgets/dashboard_tabs.dart';
 
 class ProfileSuccess extends StatelessWidget {
   const ProfileSuccess({super.key});
@@ -29,7 +29,7 @@ class ProfileSuccess extends StatelessWidget {
               'Continue to Home',
               onPressed: () => Navigator.of(
                 context,
-              ).pushAndRemoveUntil(DashboardScreen.route(), (route) => false),
+              ).pushAndRemoveUntil(DashboardTabs.route(), (route) => false),
             ),
           ],
         ),

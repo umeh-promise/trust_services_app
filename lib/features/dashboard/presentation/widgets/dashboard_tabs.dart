@@ -6,6 +6,7 @@ import 'package:trust_services_app/features/dashboard/presentation/pages/dashboa
 import 'package:trust_services_app/features/dashboard/presentation/pages/profile.dart';
 
 class DashboardTabs extends StatefulWidget {
+  static route() => MaterialPageRoute(builder: (ctx) => DashboardTabs());
   const DashboardTabs({super.key});
 
   @override
