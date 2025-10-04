@@ -17,7 +17,6 @@ class _SearchBarWithIconState extends State<SearchBarWithIcon> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: Sizes.base),
-      margin: const EdgeInsets.symmetric(horizontal: Sizes.base),
       decoration: BoxDecoration(
         color: AppPallete.grey100,
         borderRadius: BorderRadius.circular(50),

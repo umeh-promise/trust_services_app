@@ -82,7 +82,10 @@ class DashboardScreen extends StatelessWidget {
                 ),
 
                 LineDivider(),
-                SearchBarWithIcon(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: Sizes.base),
+                  child: SearchBarWithIcon(),
+                ),
                 VerifyBanner(),
                 Categories(),
                 Services(),
