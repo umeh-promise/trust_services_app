@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trust_services_app/core/utils/app_route.dart';
+import 'package:trust_services_app/core/utils/app_router.dart';
 import 'package:trust_services_app/core/utils/toast.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';

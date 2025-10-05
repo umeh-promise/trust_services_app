@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trust_services_app/core/utils/app_route.dart';
+import 'package:trust_services_app/core/utils/app_router.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/dashboard_tabs.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/theme.dart';
-import 'package:trust_services_app/core/utils/app_route.dart';
+import 'package:trust_services_app/core/utils/app_router.dart';
 import 'package:trust_services_app/core/widgets/loader.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/onboarding_cubit.dart';

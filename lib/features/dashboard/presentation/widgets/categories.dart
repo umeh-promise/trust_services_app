@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/sizes.dart';
-import 'package:trust_services_app/core/utils/app_route.dart';
+import 'package:trust_services_app/core/utils/app_router.dart';
 import 'package:trust_services_app/features/dashboard/presentation/pages/categories.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/category_card.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/home_heading.dart';
