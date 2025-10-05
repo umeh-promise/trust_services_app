@@ -32,8 +32,8 @@ class ProfileScreen extends StatelessWidget {
                   alignment: AlignmentGeometry.bottomRight,
                   children: [
                     Container(
-                      width: 70,
-                      height: 70,
+                      width: 65,
+                      height: 65,
                       decoration: BoxDecoration(
                         color: AppPallete.secondaryColor,
                         borderRadius: BorderRadius.circular(50),
@@ -73,8 +73,8 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Promise Dave',
-                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                        'Dave Promise',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w700,
                         ),
                       ),

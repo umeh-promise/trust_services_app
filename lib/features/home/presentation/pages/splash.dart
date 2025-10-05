@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
 import 'package:trust_services_app/features/auth/presentation/pages/login.dart';
 import 'package:trust_services_app/features/auth/presentation/pages/signup.dart';
@@ -36,11 +36,11 @@ class SplashScreen extends StatelessWidget {
                 Carousel(),
                 Button(
                   'Get Started',
-                  onPressed: () => Routes.push(SignupScreen.route()),
+                  onPressed: () => AppRouter.push(SignupScreen.route()),
                 ),
                 Button(
                   'Login Now',
-                  onPressed: () => Routes.push(LoginScreen.route()),
+                  onPressed: () => AppRouter.push(LoginScreen.route()),
                   backgroundColor: AppPallete.whiteColor,
                   color: AppPallete.primaryColor,
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
 import 'package:trust_services_app/core/widgets/scaffold_title.dart';
 import 'package:trust_services_app/features/dashboard/presentation/widgets/dashboard_tabs.dart';
@@ -29,7 +29,7 @@ class ProfileSuccess extends StatelessWidget {
             Button(
               'Continue to Home',
               onPressed: () =>
-                  Routes.pushAndRemoveUntil(DashboardTabs.route(), false),
+                  AppRouter.pushAndRemoveUntil(DashboardTabs.route(), false),
             ),
           ],
         ),

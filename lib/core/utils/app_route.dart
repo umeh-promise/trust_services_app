@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class Routes {
+class AppRouter {
   static final navigatorKey = GlobalKey<NavigatorState>();
 
   static Future<void> push(Route route) async {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/utils/toast.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
 
         if (state is AuthSuccess) {
-          Routes.pushAndRemoveUntil(DashboardTabs.route(), false);
+          AppRouter.pushAndRemoveUntil(DashboardTabs.route(), false);
         }
       },
       builder: (context, state) {
@@ -82,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         InkWell(
                           onTap: () =>
-                              Routes.push(ForgotPasswordScreen.route()),
+                              AppRouter.push(ForgotPasswordScreen.route()),
                           child: Text(
                             'Forgot Password?',
                             style: Theme.of(context).textTheme.labelSmall!

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/utils/toast.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
@@ -49,7 +49,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
         if (state is AuthPasswordResetSuccess) {
           Toast.success(context, 'Password reset successful!');
-          Routes.pushAndRemoveUntil(LoginScreen.route(), false);
+          AppRouter.pushAndRemoveUntil(LoginScreen.route(), false);
         }
       },
       builder: (context, state) {

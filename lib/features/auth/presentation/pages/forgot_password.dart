@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/colors.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/utils/toast.dart';
 import 'package:trust_services_app/core/widgets/app_sub_heading.dart';
 import 'package:trust_services_app/core/widgets/button.dart';
@@ -48,7 +48,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         }
 
         if (state is AuthLogoutSuccess) {
-          Routes.push(OTPScreen.route(_emailController.text));
+          AppRouter.push(OTPScreen.route(_emailController.text));
         }
       },
       builder: (context, state) {
@@ -77,7 +77,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     onPressed: _onSubmit,
                   ),
                   InkWell(
-                    onTap: () => Routes.push(LoginScreen.route()),
+                    onTap: () => AppRouter.push(LoginScreen.route()),
                     child: RichText(
                       text: TextSpan(
                         text: 'Already have an account? ',

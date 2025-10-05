@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trust_services_app/core/theme/theme.dart';
-import 'package:trust_services_app/core/utils/route_manager.dart';
+import 'package:trust_services_app/core/utils/app_route.dart';
 import 'package:trust_services_app/core/widgets/loader.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:trust_services_app/features/auth/presentation/cubit/onboarding_cubit.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme.theme,
       themeMode: ThemeMode.light,
-      navigatorKey: Routes.navigatorKey,
+      navigatorKey: AppRouter.navigatorKey,
       home: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
           if (state is AuthLoading) return Loader();
